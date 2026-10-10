@@ -145,29 +145,30 @@ jobs:
             fi
             echo "  ✅ $PATCH"
           done
-          
-          
-echo "📥 下载 USB PHY 补丁..."
 
-# USB PHY 驱动补丁：从原仓库下载
-PATCH="220-07-phy-airoha-Add-support-for-Airoha-AN7581-USB-PHY.patch"
-curl -fL --retry 3 -o "$PATCH" \
-  "https://raw.githubusercontent.com/naoki66/ImmortalWrt-for-Gemtek-brightspeed/master/target/linux/airoha/patches-6.18/$PATCH"
-test -s "$PATCH" || {
-  echo "❌ USB PHY 补丁下载失败: $PATCH"
-  exit 1
-}
-echo "✅ $PATCH"
+          
+          echo "📥 下载 USB PHY 补丁..."
 
-# XHCI 依赖补丁：使用替代仓库的固定提交版本
-PATCH="220-08-usb-host-add-ARCH_AIROHA-in-XHCI-MTK-dependency.patch"
-curl -fL --retry 3 -o "$PATCH" \
-  "https://raw.githubusercontent.com/immortalwrt-collections/lean-lede/e6cc2bedf8745674d6f682bd1b1474bfb7aa81b9/target/linux/airoha/patches-6.12/$PATCH"
-test -s "$PATCH" || {
-  echo "❌ XHCI 依赖补丁下载失败: $PATCH"
-  exit 1
-}
-echo "✅ $PATCH"
+          # USB PHY 驱动补丁：从原仓库下载
+          PATCH="220-07-phy-airoha-Add-support-for-Airoha-AN7581-USB-PHY.patch"
+          curl -fL --retry 3 -o "$PATCH" \
+            "https://raw.githubusercontent.com/naoki66/ImmortalWrt-for-Gemtek-brightspeed/master/target/linux/airoha/patches-6.18/$PATCH"
+          test -s "$PATCH" || {
+            echo "❌ USB PHY 补丁下载失败: $PATCH"
+            exit 1
+          }
+          echo "✅ $PATCH"
+
+           # XHCI 依赖补丁：使用替代仓库的固定提交版本
+          PATCH="220-08-usb-host-add-ARCH_AIROHA-in-XHCI-MTK-dependency.patch"
+          curl -fL --retry 3 -o "$PATCH" \
+            "https://raw.githubusercontent.com/immortalwrt-collections/lean-lede/e6cc2bedf8745674d6f682bd1b1474bfb7aa81b9/target/linux/airoha/patches-6.12/$PATCH"
+          test -s "$PATCH" || {
+            echo "❌ XHCI 依赖补丁下载失败: $PATCH"
+            exit 1
+          }
+          echo "✅ $PATCH"
+
 
           
           echo "📥 下载 PCS/SerDes 补丁（PON 支持）..."
@@ -177,10 +178,10 @@ echo "✅ $PATCH"
                        605-net-pcs-airoha-add-support-for-optional-xfi-reset-li.patch; do
             curl -fsSLO "https://raw.githubusercontent.com/naoki66/ImmortalWrt-for-Gemtek-brightspeed/master/target/linux/airoha/patches-6.18/$PATCH"
             if [ ! -f "$PATCH" ]; then
-              echo "  ❌ 关键补丁下载失败: $PATCH"
-              exit 1
+            echo "  ❌ 关键补丁下载失败: $PATCH"
+            exit 1
             fi
-            echo "  ✅ $PATCH"
+          echo "  ✅ $PATCH"
           done
           
           # 复制到源码树
