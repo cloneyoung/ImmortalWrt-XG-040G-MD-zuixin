@@ -117,7 +117,7 @@ jobs:
           curl -sLo image/an7581.mk "https://raw.githubusercontent.com/bingoguo93/immortalwrt/6.18/target/linux/airoha/image/an7581.mk"
           echo "  Downloaded: image/an7581.mk"
           cd ./dts/
-          for DTS in an7581-nokia_xg-040g-md.dts an7581-nokia_xg-040g-tf.dts an7581-nokia_xg-140g-md.dts an7581-nokia_xg-140g-tf.dts an7581-nokia_xg-040g-md-common-nwrt.dtsi an7581-nokia_xg-040g-md-common-nwrt-ubi-parts.dtsi an7581-nokia_xg-040g-md-common.dtsi an7581-nokia_xg-040g-md-ubi.dts an7581-npu.dtsi an758x-nokia_xg-040g-common.dtsi an758x-nokia_xg-040g-stock-parts.dtsi an758x-nokia_xg-040g-ubi-parts.dtsi; do
+          for DTS in an7581.dtsi an7581-nokia_xg-040g-md.dts an7581-nokia_xg-040g-tf.dts an7581-nokia_xg-140g-md.dts an7581-nokia_xg-140g-tf.dts an7581-nokia_xg-040g-md-common-nwrt.dtsi an7581-nokia_xg-040g-md-common-nwrt-ubi-parts.dtsi an7581-nokia_xg-040g-md-common.dtsi an7581-nokia_xg-040g-md-ubi.dts an7581-npu.dtsi an758x-nokia_xg-040g-common.dtsi an758x-nokia_xg-040g-stock-parts.dtsi an758x-nokia_xg-040g-ubi-parts.dtsi; do
             curl -sLO "https://raw.githubusercontent.com/bingoguo93/immortalwrt/6.18/target/linux/airoha/dts/$DTS"
             echo "  Downloaded: $DTS"
           done
